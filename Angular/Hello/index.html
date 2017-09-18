@@ -1,0 +1,72 @@
+<html>
+
+<head>
+    <script type="text/javascript" src="./js/lib/angular.min.js"></script>
+    <script type="text/javascript" src="./js/app.js"></script>
+    <script type="text/javascript" src="./js/Controllers/firstAppController.js"></script>
+</head>
+<title>Simple Angular Application</title>
+
+<body ng-app="sampleApp">
+    <div ng-controller="firstController">
+        <h1 ng-bind="title">
+            Simple Angular App
+        </h1>
+        <input type="text" ng-model="name" />
+        <br/>
+        <h2 ng-bind="'Hello '+name"></h2>
+    </div>
+    <!-- https://www.w3schools.com/angular/customers.php -->
+    <div ng-controller="secondController">
+        <h1>
+            Angular ng-repeat
+        </h1>
+        <input type="text" ng-model="filteringText" />
+        <ul>
+            <li ng-repeat="item in angularList | filter:filteringText">
+                <h4 ng-bind="item"></h4>
+            </li>
+        </ul>
+        <br/>
+
+        <input type="checkbox" ng-model="chekedElement" /> anmgular directive
+
+        <br/>
+        <div application-test keywordfor="chekedElement">Directive Element</div>
+
+    </div>
+
+    <div ng-controller="fourthController">
+        <h1>
+            Angular ng-repeat http fourth controller
+        </h1>
+        <button ng-click="orderByEle('Name')">Order By Name</button>
+        <ul>
+            <li ng-repeat="item in angularList | orderBy:parameter">
+                <h4 ng-bind="item.Name +'|'+item.City+','">
+                </h4>
+                <span ng-bind="item.Country|countrytoUpper"></span>
+
+            </li>
+        </ul>
+    </div>
+
+    <div ng-controller="thirdController">
+        <h1>
+            Angular event
+        </h1>
+        <input type="number" ng-model="firstNumber" />
+        <input type="number" ng-model="secondNumber" />
+        <button ng-click="getSumFunction()">Sum</button>
+        <h3 ng-bind="'Answer is '+ answer"></h3>
+
+    </div>
+
+    <div sample-test>
+
+    </div>
+
+
+</body>
+
+</html>
